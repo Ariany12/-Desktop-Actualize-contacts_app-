@@ -21,15 +21,23 @@ class Api::ContactsController < ApplicationController
    end
 
    def update
-
     id = params[:id] 
     @contact = Contact.find_by(id: id) 
-    @contact.first_name = params[:input_first_name]
-    @contact.last_name = params[:input_last_name]
-    @contact.phone_number = params[:input_phone_number]
+    @contact.first_name = params[:input_first_name] || @contact.first_name
+    @contact.last_name = params[:input_last_name] || @contacts.last_name
+    @contact.phone_number = params[:input_phone_number] || @contacts.phone_number
     
     @contact.save
 
     render 'show.json.jb'
    end
+
+   def destroy
+    id = params[:id] 
+    @contact = Contact.find_by(id: id) 
+    @contact.destroy
+
+    render 'destroy.json.jb'
+   end
+  
  end
