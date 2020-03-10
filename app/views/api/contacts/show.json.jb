@@ -1,7 +1,11 @@
 {
-  id: @contact.id,
-  first_name: @contact.first_name,
-  last_name: @contact.last_name,
-  phone_number: @contact.phone_number
+  id:@contact.id,
+    first_name:@contact.first_name,
+    last_name: @contact.last_name,
+    middle_name: @contact.middle_name,
+    phone_number:@contact.phone_number,
+    update:@contact.friendly_updated_at,
+    japan_phone_number:@contact.japan_phone_number,
+    brazillian_number: @contact.brazillian_number
  
 }

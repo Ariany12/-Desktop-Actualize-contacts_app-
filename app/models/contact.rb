@@ -15,9 +15,4 @@ class Contact < ApplicationRecord
   def brazillian_number
     "+55 #{phone_number}"
   end
-
-  def middle_name
-    ":/"
-  end
-
 end
