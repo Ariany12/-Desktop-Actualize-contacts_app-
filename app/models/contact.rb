@@ -12,4 +12,12 @@ class Contact < ApplicationRecord
   "+81 #{phone_number}"
   end
 
+  def brazillian_number
+    "+55 #{phone_number}"
+  end
+
+  def middle_name
+    ":/"
+  end
+
 end
