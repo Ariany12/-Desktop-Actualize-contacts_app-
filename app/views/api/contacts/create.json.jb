@@ -4,6 +4,7 @@
   middle_name: @contacts.middle_name,
   last_name: @contacts.last_name,
   phone_number: @contacts.phone_number,
-  bio:@contact.bio
+  bio:@contacts.bio,
+  address: @contacts.address
  
 }

@@ -16,7 +16,9 @@ class Api::ContactsController < ApplicationController
         middle_name: params[:middle_name],
         last_name: params[:last_name],
         phone_number: params[:phone_number],
-        bio: params[:bio]
+        bio: params[:bio],
+        latitude: params[:latitude],
+        longitude: params[:longitude]
 
     )
       @contacts.save
@@ -30,11 +32,16 @@ class Api::ContactsController < ApplicationController
     @contact.middle_name = params[:middle_name] || @contact.midlle_name
     @contact.last_name = params[:last_name] || @contact.last_name
     @contact.phone_number = params[:phone_number] || @contact.phone_number
-
+    @contact.latitude =  params[:latitude] || @contact.latitude
+    @contact.longitude = params[:longitude] || @contact.longitude
     
-    @contact.save
-
-    render 'show.json.jb'
+    if @contact.save
+      render 'show.json.jb'
+    else
+      render json: {errors: @contact.errors.full_messages}, status: :unprocessable_entity
+    # @contact.save
+    # render 'show.json.jb'
+    end
    end
 
    def destroy
